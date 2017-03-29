@@ -1,0 +1,7 @@
+# IDE files
+.idea
+
+# Unrelated files
+.dockerignore
+.gitignore
+README.md
