@@ -77,13 +77,14 @@ RUN git clone https://github.com/google/zopfli.git /tmp/zopfli && \
     cd / && rm -rf /tmp/zopfli
 RUN git clone https://github.com/tjko/jpegoptim.git /tmp/jpegoptim && \
     cd /tmp/jpegoptim && \
-    git checkout RELEASE.$JPEGOPTIM_VERSION && \
+    git checkout -f RELEASE.$JPEGOPTIM_VERSION && \
     ./configure && \
     make && make strip && make install && \
     cd / && rm -rf /tmp/jpegoptim
 RUN curl -sS -L https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz -o /tmp/dockerize.tar.gz && \
     tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz && \
     rm /tmp/dockerize.tar.gz
+RUN chown -R www-data:www-data /var/www
 
 ADD templates /usr/local/etc/php/conf.template.d
 ADD entrypoint.sh /usr/local/bin/entrypoint
