@@ -49,6 +49,16 @@ What's bundled in:
 
 # Environment options
 
+## Enabling XDebug
+
+To enable XDebug, set `FATTY_EXTENSION_XDEBUG` to anything:
+
+```bash
+docker run -e FATTY_EXTENSION_XDEBUG=true amateam/php-fpm-fatty
+```
+
+XDebug itself may have too heavy impact to be turned on always.
+
 ## php.ini
 
 All environment options starting with `FATTY_INI_` are processed using 
